@@ -72,7 +72,7 @@ if __name__ == '__main__':
 #         torch.onnx.export(model, img, f, verbose=False, opset_version=12, input_names=['images'],
 #                           output_names=['classes', 'boxes'] if y is None else ['output'], export_params=True)
         torch.onnx._export(model, img, f, verbose=False, opset_version=12, input_names=['images'],
-                          output_names=['classes', 'boxes'] if y is None else ['output'], export_params=True
+                          output_names=['classes', 'boxes'] if y is None else ['output'], export_params=True)
 
         # Checks
         onnx_model = onnx.load(f)  # load onnx model
