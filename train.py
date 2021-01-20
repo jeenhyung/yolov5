@@ -388,7 +388,12 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
                 del ckpt
         # end epoch ----------------------------------------------------------------------------------------------------
     # end training
-
+    
+    # 학습이 끝난 신경망 모델
+    params = model.state_dict()
+    # net.prm라는 파일로 저장
+    torch.save(params, "model.param", pickle_protocol = 4)
+                
     if rank in [-1, 0]:
         # Strip optimizers
         final = best if best.exists() else last  # final model
